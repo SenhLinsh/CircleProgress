@@ -1,37 +1,118 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/activity_main"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical">
 
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:orientation="vertical">
+        android:orientation="horizontal">
+
+        <com.linsh.circleprogress.CircleProgress
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:background="#113F51B5"
+            app:progress="80"
+            app:progressColor="@color/progressColor2"
+            app:progressWidth="10dp"/>
+
+        <com.linsh.circleprogress.SeriesCircleProgress
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:background="#113F51B5"
+            app:progress1="60"
+            app:progress2="30"
+            app:progress3="10"
+            app:progressColor1="@color/progressColor2"
+            app:progressColor2="@color/progressColor3"
+            app:progressColor3="@color/progressColor4"
+            app:progressWidth="10dp"/>
+
+        <com.linsh.circleprogress.ParallelCircleProgress
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:background="#113F51B5"
+            app:progress1="60"
+            app:progress2="30"
+            app:progress3="10"
+            app:progressColor1="@color/progressColor2"
+            app:progressColor2="@color/progressColor3"
+            app:progressColor3="@color/progressColor4"
+            app:progressWidth="10dp"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="10dp">
+
+        <TextView
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="CircleProgress"/>
+
+        <TextView
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:gravity="center"
+            android:text="SeriesCircle Progress"/>
+
+        <TextView
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="ParallelCircle Progress"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
 
         <com.linsh.circleprogress.CircleProgress
             android:id="@+id/circleprogress"
             android:layout_width="100dp"
             android:layout_height="100dp"
-            android:background="#113F51B5"/>
+            android:background="#113F51B5"
+            app:progressWidth="5dp"/>
 
         <com.linsh.circleprogress.SeriesCircleProgress
             android:id="@+id/seriescircleprogress"
             android:layout_width="100dp"
             android:layout_height="100dp"
-            android:layout_marginBottom="10dp"
-            android:layout_marginTop="10dp"
-            android:background="#113F51B5"/>
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:background="#113F51B5"
+            app:progressWidth="5dp"/>
 
         <com.linsh.circleprogress.ParallelCircleProgress
             android:id="@+id/parallelcircleprogress"
             android:layout_width="100dp"
             android:layout_height="100dp"
-            android:background="#113F51B5"/>
+            android:background="#113F51B5"
+            app:progressWidth="5dp"/>
 
     </LinearLayout>
 
-</RelativeLayout>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:onClick="animating"
+        android:text="Animating"
+        android:textColor="#9000"/>
+
+</LinearLayout>
