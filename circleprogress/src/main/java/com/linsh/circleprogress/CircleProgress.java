@@ -1,8 +1,8 @@
 package com.linsh.circleprogress;
 
 import android.content.Context;
+import android.content.res.TypedArray;
 import android.graphics.Canvas;
-import android.graphics.Color;
 import android.util.AttributeSet;
 
 /**
@@ -17,21 +17,22 @@ public class CircleProgress extends BaseCircleProgress {
 
     public CircleProgress(Context context, AttributeSet attrs) {
         super(context, attrs);
+        initAttr(attrs);
     }
 
     public CircleProgress(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
+        initAttr(attrs);
     }
 
-    @Override
-    protected void init() {
-        super.init();
-        if (isInEditMode()) {
-            setProgressWidth(20);
-            setProgress(50);
-            setProgressColor(Color.BLUE);
-            setEmptyColor(0x11000000);
-        }
+    private void initAttr(AttributeSet attrs) {
+        TypedArray typedArray = getContext().obtainStyledAttributes(attrs, R.styleable.CircleProgress);
+        int progress = typedArray.getInteger(R.styleable.CircleProgress_progress, 0);
+        int progressColor = typedArray.getColor(R.styleable.CircleProgress_progressColor, 0);
+        setProgress(progress);
+        setProgressColor(progressColor);
+
+        typedArray.recycle();
     }
 
     @Override

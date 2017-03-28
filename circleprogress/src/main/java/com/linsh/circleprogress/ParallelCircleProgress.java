@@ -2,7 +2,6 @@ package com.linsh.circleprogress;
 
 import android.content.Context;
 import android.graphics.Canvas;
-import android.graphics.Color;
 import android.graphics.RectF;
 import android.util.AttributeSet;
 
@@ -10,56 +9,20 @@ import android.util.AttributeSet;
 /**
  * Created by Senh Linsh on 17/3/15.
  */
-public class ParallelCircleProgress extends BaseCircleProgress {
+public class ParallelCircleProgress extends MultiCircleProgress {
 
     private RectF mCurRectF = new RectF();
 
     public ParallelCircleProgress(Context context) {
         super(context);
-        init();
     }
 
     public ParallelCircleProgress(Context context, AttributeSet attrs) {
         super(context, attrs);
-        init();
     }
 
     public ParallelCircleProgress(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
-        init();
-    }
-
-    @Override
-    public void init() {
-        super.init();
-
-        if (isInEditMode()) {
-            setProgressWidth(20);
-            setProgress(new int[]{50, 30, 20});
-            setProgressColor(new int[]{Color.RED, Color.BLUE, Color.YELLOW});
-
-            setEmptyColor(0x110000FF);
-        }
-    }
-
-    @Override
-    public void setProgress(int[] progress) {
-        super.setProgress(progress);
-    }
-
-    @Override
-    public void setProgressColor(int[] colors) {
-        super.setProgressColor(colors);
-    }
-
-    @Override
-    public void setProgressWithAnimation(int[] progresses) {
-        super.setProgressWithAnimation(progresses);
-    }
-
-    @Override
-    public void setProgressWithAnimation(int[] progresses, long duration) {
-        super.setProgressWithAnimation(progresses, duration);
     }
 
     @Override

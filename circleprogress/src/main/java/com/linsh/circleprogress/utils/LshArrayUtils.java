@@ -1,9 +1,21 @@
 package com.linsh.circleprogress.utils;
 
+import java.util.List;
+
 /**
  * Created by Senh Linsh on 17/3/16.
  */
 public class LshArrayUtils {
+
+    public static int[] toArray(List<Integer> list) {
+        if (list == null) return null;
+
+        int[] array = new int[list.size()];
+        for (int i = 0; i < array.length; i++) {
+            array[i] = list.get(i);
+        }
+        return array;
+    }
 
     public static void copy(int[] srcArray, int[] destArray) {
         if (srcArray == null) {

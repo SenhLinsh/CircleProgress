@@ -4,6 +4,7 @@ import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.animation.ValueAnimator;
 import android.content.Context;
+import android.content.res.TypedArray;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.RectF;
@@ -35,20 +36,31 @@ abstract class BaseCircleProgress extends View {
 
     public BaseCircleProgress(Context context) {
         super(context);
-        init();
+        initParent();
     }
 
     public BaseCircleProgress(Context context, AttributeSet attrs) {
         super(context, attrs);
-        init();
+        initAttr(attrs);
+        initParent();
     }
 
     public BaseCircleProgress(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
-        init();
+        initAttr(attrs);
+        initParent();
     }
 
-    protected void init() {
+    private void initAttr(AttributeSet attrs) {
+        TypedArray typedArray = getContext().obtainStyledAttributes(attrs, R.styleable.BaseCircleProgress);
+        mStrokeWidth = typedArray.getDimensionPixelSize(R.styleable.BaseCircleProgress_progressWidth, 0);
+        mEmptyColor = typedArray.getColor(R.styleable.BaseCircleProgress_emptyColor, 0);
+        mStartAngle = typedArray.getInteger(R.styleable.BaseCircleProgress_startAngle, 0);
+
+        typedArray.recycle();
+    }
+
+    protected void initParent() {
         mPaint = new Paint();
         mPaint.setColor(DEFAULT_COLOR);
         mPaint.setAntiAlias(true);
